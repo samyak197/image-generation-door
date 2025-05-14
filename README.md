@@ -24,8 +24,8 @@ A web application that uses Google's Gemini AI to generate, edit, and chat about
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/yourusername/gemini-image-generator.git
-   cd gemini-image-generator
+   https://github.com/samyak197/image-generation-door.git
+   cd image-generation-door
    ```
 
 2. Create a virtual environment:
@@ -36,7 +36,7 @@ A web application that uses Google's Gemini AI to generate, edit, and chat about
 3. Activate the virtual environment:
    - Windows:
      ```bash
-     venv\Scripts\activate
+     .\venv\Scripts\activate
      ```
    - macOS/Linux:
      ```bash
@@ -81,7 +81,9 @@ A web application that uses Google's Gemini AI to generate, edit, and chat about
    ```
 
 2. Open your html page
-
+   ```bash
+   Go to localhost:8000
+   ```
 ## 💡 Development Notes
 
 - The application uses FastAPI for the backend API
