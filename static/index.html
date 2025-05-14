@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gemini Image Generator</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>Gemini Image Generator</h1>
+            <nav>
+                <ul>
+                    <li><a href="#" data-tab="generate" class="active">Generate</a></li>
+                    <li><a href="#" data-tab="edit">Edit</a></li>
+                    <!-- <li><a href="#" data-tab="chat">Chat</a></li> -->
+                    <li><a href="#" data-tab="history">History</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <!-- Generate Image Tab -->
+            <section id="generate" class="tab-content active">
+                <div class="card">
+                    <h2>Generate Image</h2>
+                    <form id="generate-form">
+                        <div class="form-group">
+                            <label for="generate-prompt">Enter your prompt:</label>
+                            <textarea id="generate-prompt" rows="4" placeholder="Describe the image you want to generate..."></textarea>
+                        </div>
+                        <button type="submit" class="btn primary">Generate Image</button>
+                    </form>
+                    <div id="generate-result" class="result-container">
+                        <div class="loader" style="display: none;"></div>
+                        <div class="result-content" style="display: none;">
+                            <img id="generated-image" src="" alt="Generated Image">
+                            <div class="result-text" id="generated-text"></div>
+                            <div class="action-buttons">
+                                <button class="btn secondary" id="chat-about-generated">Chat about this</button>
+                                <button class="btn secondary" id="edit-generated">Edit this</button>
+                                <button class="btn secondary" id="download-generated">Download</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Edit Image Tab -->
+            <section id="edit" class="tab-content">
+                <div class="card">
+                    <h2>Edit Image</h2>
+                    <form id="edit-form">
+                        <div class="form-group">
+                            <label for="edit-image-upload">Upload an image:</label>
+                            <input type="file" id="edit-image-upload" accept="image/*">
+                            <div class="image-preview" id="edit-image-preview"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="edit-prompt">Describe your changes:</label>
+                            <textarea id="edit-prompt" rows="4" placeholder="Describe how you want to edit the image..."></textarea>
+                        </div>
+                        <button type="submit" class="btn primary">Edit Image</button>
+                    </form>
+                    <div id="edit-result" class="result-container">
+                        <div class="loader" style="display: none;"></div>
+                        <div class="result-content" style="display: none;">
+                            <img id="edited-image" src="" alt="Edited Image">
+                            <div class="result-text" id="edited-text"></div>
+                            <div class="action-buttons">
+                                <button class="btn secondary" id="chat-about-edited">Chat about this</button>
+                                <button class="btn secondary" id="download-edited">Download</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- History Tab -->
+            <section id="history" class="tab-content">
+                <div class="card">
+                    <h2>History</h2>
+                    <div class="tabs-container">
+                        <!-- <div class="tabs-nav">
+                            <button class="tab-btn active" data-history-tab="images">Generated Images</button>
+                            <button class="tab-btn" data-history-tab="chats">Chat History</button>
+                        </div> -->
+                        <div class="history-content">
+                            <div id="images-history" class="history-tab-content active">
+                                <div class="images-grid" id="history-images-grid"></div>
+                            </div>
+                            <!-- <div id="chats-history" class="history-tab-content">
+                                <div class="chat-history-list" id="chat-history-list"></div>
+                            </div> -->
+                        </div>
+                    </div>
+                    <button class="btn secondary" id="refresh-history">Refresh History</button>
+                </div>
+            </section>
+        </main>
+
+        <div id="image-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <img id="modal-image" src="" alt="Enlarged Image">
+                <div id="modal-caption"></div>
+                <div class="modal-actions">
+                    <button class="btn secondary" id="modal-chat">Chat about this</button>
+                    <button class="btn secondary" id="modal-edit">Edit</button>
+                    <button class="btn secondary" id="modal-download">Download</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
